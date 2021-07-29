@@ -1,0 +1,219 @@
+// css header
+header {
+    --heighHeader: 80px;
+    width: 100%;
+    height: var(--heighHeader);
+    background: rgba($color: #0000008f, $alpha: 0.7);
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    // position: relative;
+
+    .container-fluid {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo {
+            .hidden {
+                display: none;
+            }
+        }
+        .menu {
+            height: 100%;
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            li {
+                height: 100%;
+
+                a {
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0 15px;
+                    font-size: 16px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    @include transition($t);
+                    &:hover {
+                        @include transition($t);
+                        color: $yellow-cl;
+                    }
+                    &.active {
+                        @include transition(0.5s);
+                        color: $yellow-cl;
+                    }
+                }
+            }
+        }
+        .right {
+            display: flex;
+
+            .lang {
+                padding-right: 5px;
+                position: relative;
+                cursor: pointer;
+                &__current {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #fff;
+                    font-size: 16px;
+                    i {
+                        margin-left: 5px;
+                        display: flex;
+                        img {
+                            align-content: center;
+                        }
+                    }
+                }
+                &__option {
+                    width: 50px;
+                    height: auto;
+                    background: #010101;
+                    top: 20px;
+                    right: 0;
+                    padding: 5px;
+                    position: absolute;
+                    text-align: center;
+                    opacity: 0;
+                    pointer-events: none;
+                    .opt {
+                        text-decoration: none;
+                        color: #fff;
+                        padding: 10px 0px;
+                    }
+                    &.active {
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                }
+                // &:hover {
+                //     .lang__option {
+                //         display: block;
+                //     }
+                // }
+            }
+            .btnMenu {
+                display: none;
+                width: 40px;
+                height: 22px;
+                position: relative;
+                cursor: pointer;
+                z-index: 300;
+
+                span {
+                    width: 100%;
+                    height: 2px;
+                    background: $yellow-cl;
+                    display: block;
+                    top: 11px;
+                    position: absolute;
+                    @include transform(translateY(-50%));
+                    @include transition(0.3s);
+                }
+                &:after,
+                &:before {
+                    content: "";
+                    width: 100%;
+                    height: 2px;
+                    background: $yellow-cl;
+                    display: block;
+                    @include transform(rotate(0deg) translateY(0px));
+                    @include transition(transform 0.3s);
+                }
+                &:after {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+        }
+        .nav {
+            width: 100vw;
+            height: 100vh;
+            background: $black-bg-cl;
+            position: fixed;
+            top: 0;
+            left: 0;
+            // pointer-events: none;
+            @include transform(initial);
+            z-index: 200;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(opacity 0.3s);
+            ul {
+                text-align: center;
+                flex-direction: column;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                text-transform: uppercase;
+                li {
+                    padding-top: 40px;
+                    a {
+                        color: #fff;
+
+                        text-decoration: none;
+                        font-size: 30px;
+                    }
+                }
+            }
+            &.active {
+                opacity: 1;
+                visibility: initial;
+                @include transition(0.3s);
+            }
+        }
+    }
+}
+
+@include lg {
+    // CSS responsive large desktop
+}
+@include md {
+    // CSS responsive desktop
+}
+@include sm {
+    // CSS responsive tablet
+    header {
+        --heighHeader: 60px;
+        .container-fluid {
+            .menu {
+                display: none;
+            }
+            .right {
+                .btnMenu {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+@include xs {
+    // CSS responsive mobile
+    header {
+        .mainwrapper {
+            .slider {
+                &__ctrl {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@include xxs {
+    // CSS responsive small mobile
+}
+
+@media (max-width: 500px) {
+}
+
+@include maxW(500px) {
+}

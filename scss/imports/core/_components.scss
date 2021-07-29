@@ -1,0 +1,109 @@
+// css components
+.textBox {
+    padding-left: 100px;
+    padding-top: 80px;
+    .textInfo {
+        margin-left: -40px;
+    }
+    .titleMain {
+        font-size: 40px;
+        font-family: pb;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        color: $text-cl;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+
+        &:before {
+            content: "";
+            width: 80px;
+            height: 2px;
+            background: $yellow-cl;
+            display: inline-block;
+            position: absolute;
+            margin-left: -80px;
+            left: -20px;
+        }
+    }
+    .des {
+        padding: 15px 0;
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: $text-cl;
+        font-family: pr;
+        letter-spacing: 0.25px;
+        // padding-right: 70px;
+        // text-overflow: ellipsis;
+        line-height: 22px;
+        // height:80px ;
+        // -webkit-line-clamp: 3;
+        // display: -webkit-box;
+        // -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    &.--tRight {
+        text-align: right;
+        padding-left: 0;
+        padding-right: 100px;
+        .titleMain {
+            flex-direction: row-reverse;
+            &:before {
+                margin-left: 130px;
+                left: 20px;
+            }
+        }
+    }
+    &.--textCenter {
+        text-align: center;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        margin: auto;
+        max-width: 600px;
+        .titleMain {
+            &:before {
+                content: "";
+                width: 30px;
+                margin-left: 0;
+                left: 0;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin-top: 30px;
+            }
+            // &:after {
+            //     content: "";
+            //     border: 1px solid $yellow-cl;
+            //     width: 30px;
+            //     margin-left: 0;
+            //     left: 0;
+            //     top: 50%;
+            //     left: 50%;
+            //     transform: translate(-50%, -50%);
+            //     margin-top: 30px;
+            // }
+            // @include sm{
+
+            // }
+        }
+    }
+    @include sm {
+        padding-top: 20px;
+        padding-left: 0;
+        .titleMain {
+            &:before {
+                display: none;
+            }
+        }
+        &.--tRight {
+            padding-right: 0;
+        }
+        .des {
+            padding: 0;
+        }
+        .textInfo {
+            margin-left: 10px;
+        }
+    }
+}
